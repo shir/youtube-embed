@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'youtube/embed/version'
+require 'youtube_embed/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "youtube-embed"
-  spec.version       = Youtube::Embed::VERSION
+  spec.version       = YoutubeEmbed::VERSION
   spec.authors       = ["Ildar Shaynurov"]
   spec.email         = ["shaynurov@gmail.com"]
   spec.summary       = %q{Parse youtube video url and generate iframe html}
