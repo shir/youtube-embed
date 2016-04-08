@@ -8,6 +8,7 @@ describe YoutubeEmbed::Video do
       let(:options) { {} }
       it { is_expected.not_to be_show_similar }
       it { is_expected.to be_show_title }
+      it { is_expected.to be_show_controls }
       it { is_expected.to be_allow_fullscreen }
       it { expect(subject.width).to eq 640 }
       it { expect(subject.height).to eq 360 }
@@ -21,6 +22,11 @@ describe YoutubeEmbed::Video do
     context "if `show_title` option is set to false" do
       let(:options) { {show_title: false} }
       it { is_expected.not_to be_show_title }
+    end
+
+    context "if `show_controls` option is set to false" do
+      let(:options) { {show_controls: false} }
+      it { is_expected.not_to be_show_controls }
     end
 
     context "if `allow_fullscreen` option is set to false" do
@@ -89,11 +95,26 @@ describe YoutubeEmbed::Video do
         is_expected.to eq 'https://www.youtube.com/embed/XD_e7T5WCqw?showinfo=0'
       end
     end
-    context "if both `show_title` and `show_similar` option are false" do
+    context "if `show_controls` option is true" do
+      before{ allow(video).to receive(:show_similar?).and_return(true) }
+      before{ allow(video).to receive(:show_controls?).and_return(true) }
+      it "doesn't add `controls` parameter" do
+        is_expected.to eq 'https://www.youtube.com/embed/XD_e7T5WCqw'
+      end
+    end
+    context "if `show_controls` option is false" do
+      before{ allow(video).to receive(:show_similar?).and_return(true) }
+      before{ allow(video).to receive(:show_controls?).and_return(false) }
+      it "adds `controls` get parameter set to 0" do
+        is_expected.to eq 'https://www.youtube.com/embed/XD_e7T5WCqw?controls=0'
+      end
+    end
+    context "if both `show_title` and `show_similar` and `show_controls` options are false" do
       before{ allow(video).to receive(:show_similar?).and_return(false) }
       before{ allow(video).to receive(:show_title?).and_return(false) }
+      before{ allow(video).to receive(:show_controls?).and_return(false) }
       it "adds `showinfo` and `rel` get parameters set to 0" do
-        is_expected.to eq 'https://www.youtube.com/embed/XD_e7T5WCqw?rel=0&amp;showinfo=0'
+        is_expected.to eq 'https://www.youtube.com/embed/XD_e7T5WCqw?rel=0&amp;showinfo=0&amp;controls=0'
       end
     end
   end

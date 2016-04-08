@@ -43,6 +43,7 @@ Next options are availbale:
 
 - `show_similar` - show similar video when video is finished. Default `false`.
 - `show_title`   - show video title. Default `true`.
+- `show_controls` - show video controls. Default `true`.
 - `allow_fullscreen` - allow user to switch video in fullscreen model. Default `true`.
 - `width` - wdith of iframe. Default `640`.
 - `height` - height of iframe. Default `360`.

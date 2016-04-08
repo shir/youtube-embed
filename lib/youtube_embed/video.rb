@@ -10,10 +10,11 @@ module YoutubeEmbed
       @video_url = video_url
       @options = {
         allow_fullscreen: true,
-        show_title: true,
-        show_similar: false,
-        width: 640,
-        height: 360
+        show_title:       true,
+        show_similar:     false,
+        show_controls:    true,
+        width:            640,
+        height:           360
       }.merge(options.inject({}){ |o,(k,v)| o[k.to_sym] = v; o })
     end
 
@@ -27,7 +28,7 @@ module YoutubeEmbed
         end
     end
 
-    %w[allow_fullscreen show_title show_similar].each do |opt_name|
+    %w[allow_fullscreen show_title show_similar show_controls].each do |opt_name|
       define_method "#{opt_name}?" do
         @options[opt_name.to_sym]
       end
@@ -43,6 +44,7 @@ module YoutubeEmbed
       params = {}.tap do |p|
         p['rel'] = 0 if !show_similar?
         p['showinfo'] = 0 if !show_title?
+        p['controls'] = 0 if !show_controls?
       end
 
       "https://www.youtube.com/embed/#{video_id}#{params.size == 0 ? '' : '?' + params.map{ |k, v| "#{k}=#{v}" }.join('&amp;')}"
