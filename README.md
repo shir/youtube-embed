@@ -1,6 +1,6 @@
 # YoutubeEmbed
 
-This library allow to parse given YouTube video url and generate html code for embed video on your page
+This library allows to parse given YouTube video url and generate html code for embed video on your page
 
 ## Installation
 
@@ -39,7 +39,7 @@ You also may pass some options
 ```ruby
 YoutubeEmbed::Video.new('https://www.youtube.com/watch?v=XD_e7T5WCqw', { show_similar: true })
 ```
-Next options are availbale:
+Next options are available:
 
 - `show_similar` - show similar video when video is finished. Default `false`.
 - `show_title`   - show video title. Default `true`.
