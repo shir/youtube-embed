@@ -1,6 +1,6 @@
 # YoutubeEmbed
 
-This library allows to parse given YouTube video url and generate html code for embed video on your page
+This library allows you to parse a YouTube video url and generate html code for embedding video in your page.
 
 ## Installation
 
