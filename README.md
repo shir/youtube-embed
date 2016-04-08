@@ -1,6 +1,6 @@
-# Youtube::Embed
+# YoutubeEmbed
 
-TODO: Write a gem description
+This library allow to parse given YouTube video url and generate html code for embed video on your page
 
 ## Installation
 
@@ -20,11 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require `youtube_embed`
+
+video = YoutubeEmbed::Video.new('https://www.youtube.com/watch?v=XD_e7T5WCqw') # You may use short url too like 'https://youtu.be/XD_e7T5WCqw'
+video.iframe
+```
+or shorter
+```ruby
+require `youtube_embed`
+
+YoutubeEmbed::Video.iframe('https://www.youtube.com/watch?v=XD_e7T5WCqw')
+```
+
+### Options
+
+You also may pass some options
+```ruby
+YoutubeEmbed::Video.new('https://www.youtube.com/watch?v=XD_e7T5WCqw', { show_similar: true })
+```
+Next options are availbale:
+
+- `show_similar` - show similar video when video is finished. Default `false`.
+- `show_title`   - show video title. Default `true`.
+- `allow_fullscreen` - allow user to switch video in fullscreen model. Default `true`.
+- `width` - wdith of iframe. Default `640`.
+- `height` - height of iframe. Default `360`.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/youtube-embed/fork )
+1. Fork it ( https://github.com/shir/youtube-embed/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
