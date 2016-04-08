@@ -49,7 +49,7 @@ module YoutubeEmbed
     end
 
     def iframe
-      %(<iframe width="#{width}" height="#{height}" src="#{embed_url}" frameborder="0" #{'allowfullscreen' if allow_fullscreen?}></iframe>).html_safe
+      %(<iframe width="#{width}" height="#{height}" src="#{embed_url}" frameborder="0"#{' allowfullscreen' if allow_fullscreen?}></iframe>)
     end
   end
 end
