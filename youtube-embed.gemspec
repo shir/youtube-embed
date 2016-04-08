@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ildar Shaynurov"]
   spec.email         = ["shaynurov@gmail.com"]
   spec.summary       = %q{Parse youtube video url and generate iframe html}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/shir/youtube-embed"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
