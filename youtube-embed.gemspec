@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Parse youtube video url and generate iframe html}
   spec.homepage      = "https://github.com/shir/youtube-embed"
   spec.license       = "MIT"
+  spec.required_ruby_version = '>= 1.9.3'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
